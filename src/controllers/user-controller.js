@@ -72,5 +72,5 @@ const isAuthenticated = async (req, res) => {
 module.exports = {
   create,
   signIn,
-  sAuthenticated,
+  isAuthenticated,
 };
