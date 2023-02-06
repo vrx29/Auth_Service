@@ -39,7 +39,7 @@ class UserService {
       throw error;
     }
   }
-   
+
   async isAuthenticated(token) {
     try {
       const response = this.verifyToken(token);
@@ -82,6 +82,15 @@ class UserService {
       return bcrypt.compareSync(userInputPlainPassword, encryptedPassword);
     } catch (error) {
       console.log("Something went wrong in password comparison");
+      throw error;
+    }
+  }
+
+  isAdmin(userId) {
+    try {
+      return this.userRepository.isAdmin(userId);
+    } catch (error) {
+      console.log("Something went wrong in service layer");
       throw error;
     }
   }
